@@ -1,6 +1,5 @@
 [
   {
-    "id": 101,
     "name": "Duranta Gravity-26",
     "brand": "Duranta",
     "img": "https://i.ibb.co/jVjkJZL/duranta-1.jpg",
@@ -17,7 +16,6 @@
     "rating": 5
   },
   {
-    "id": 102,
     "name": "Duranta CB Rider 20 Inch",
     "brand": "Duranta",
     "img": "https://i.ibb.co/s149ky2/duranta-2.jpg",
@@ -34,7 +32,6 @@
     "rating": 4
   },
   {
-    "id": 103,
     "name": "Duranta CB Allan Dynamic X800",
     "brand": "Duranta",
     "img": "https://i.ibb.co/3Cq8PZT/duranta-3.jpg",
@@ -51,7 +48,6 @@
     "rating": 5
   },
   {
-    "id": 104,
     "name": "Duranta Comondo 12 Kids",
     "brand": "Duranta",
     "img": "https://i.ibb.co/8MzzNJM/duranta-4.jpg",
@@ -68,7 +64,6 @@
     "rating": 5
   },
   {
-    "id": 105,
     "name": "Duranta Allan Furious 700C",
     "brand": "Duranta",
     "img": "https://i.ibb.co/Pj8JDzh/duranta-5.jpg",
@@ -85,7 +80,6 @@
     "rating": 5
   },
   {
-    "id": 106,
     "name": "Hero Neon DX Lady 26T",
     "brand": "Hero",
     "img": "https://i.ibb.co/VpLfR9H/hero-1.jpg",
@@ -102,7 +96,6 @@
     "rating": 5
   },
   {
-    "id": 107,
     "name": "Hero Royal Classic 28T",
     "brand": "Hero",
     "img": "https://i.ibb.co/J2953pM/hero-2.jpg",
@@ -119,7 +112,6 @@
     "rating": 5
   },
   {
-    "id": 108,
     "name": "Hero Sundancer 20T",
     "brand": "Hero",
     "img": "https://i.ibb.co/0Qw4MsX/hero-3.jpg",
@@ -136,7 +128,6 @@
     "rating": 5
   },
   {
-    "id": 109,
     "name": "Atlas Upland",
     "brand": "Atlas",
     "img": "https://i.ibb.co/gJFV5mC/Atlas-Upland.jpg",
@@ -153,7 +144,6 @@
     "rating": 5
   },
   {
-    "id": 110,
     "name": "Coyote Route 29",
     "brand": "Coyote",
     "img": "https://i.ibb.co/WFyhDj9/coyote-route.jpg",
@@ -170,7 +160,6 @@
     "rating": 5
   },
   {
-    "id": 111,
     "name": "Diamondback RESPONSE",
     "brand": "Diamondback",
     "img": "https://i.ibb.co/4V23Nzm/diamondback-1.jpg",
@@ -187,7 +176,6 @@
     "rating": 5
   },
   {
-    "id": 112,
     "name": "Diamondback Peak HD",
     "brand": "Diamondback",
     "img": "https://i.ibb.co/K2chzN3/diamondback-peak-hd.jpg",
@@ -204,7 +192,6 @@
     "rating": 5
   },
   {
-    "id": 113,
     "name": "Formula 2",
     "brand": "Formula",
     "img": "https://i.ibb.co/tC691Pk/formula-2.jpg",
@@ -221,7 +208,6 @@
     "rating": 5
   },
   {
-    "id": 114,
     "name": "Hero Sprint RX-2",
     "brand": "Hero",
     "img": "https://i.ibb.co/SX91kHh/hero-4.jpg",
@@ -238,7 +224,6 @@
     "rating": 5
   },
   {
-    "id": 115,
     "name": "MBM Adacta Folding Bike",
     "brand": "MBM",
     "img": "https://i.ibb.co/KVNzkpf/mbm-1.jpg",
