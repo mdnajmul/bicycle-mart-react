@@ -17,6 +17,7 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
   const [authError, setAuthError] = useState("");
 
   //get all products
@@ -86,6 +87,12 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
 
   const logOut = () => {
     setIsLoading(true);
