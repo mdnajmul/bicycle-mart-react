@@ -62,7 +62,9 @@ const Navigation = () => {
             <NavLink style={{ textDecoration: "none" }} to="/dashboard">
               <Button className={classes.link}>Dashboard</Button>
             </NavLink>
-            <Button className={classes.link}>Login</Button>
+            <NavLink style={{ textDecoration: "none" }} to="/login">
+              <Button className={classes.link}>Login</Button>
+            </NavLink>
           </div>
         )}
       </Toolbar>
