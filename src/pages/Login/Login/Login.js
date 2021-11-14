@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Box,
-  Container,
   Typography,
   TextField,
   Button,
@@ -94,6 +93,15 @@ const Login = () => {
             <Button onClick={handleGoogleSignIn} variant="contained">
               Google Sign In
             </Button>
+            {isLoading && (
+              <Box sx={{ textAlign: "center" }}>
+                <CircularProgress />
+              </Box>
+            )}
+            {user?.email && (
+              <Alert severity="success">Login successfully!</Alert>
+            )}
+            {authError && <Alert severity="error">{authError}</Alert>}
             <Typography sx={{ mt: 4 }} variant="body1" gutterBottom>
               <span>
                 Not a member?{" "}

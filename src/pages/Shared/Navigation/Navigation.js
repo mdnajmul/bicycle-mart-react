@@ -8,9 +8,11 @@ import {
   useTheme,
   useMediaQuery,
   Button,
+  Box,
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
+import useAuth from "../../../hooks/useAuth";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
@@ -34,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
 
 // marginLeft: theme.spacing(20),
 const Navigation = () => {
+  const user = useAuth();
+  const logOut = useAuth();
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -59,12 +63,21 @@ const Navigation = () => {
             <NavLink style={{ textDecoration: "none" }} to="/products">
               <Button className={classes.link}>ALL COLLECTION</Button>
             </NavLink>
-            <NavLink style={{ textDecoration: "none" }} to="/dashboard">
-              <Button className={classes.link}>Dashboard</Button>
-            </NavLink>
-            <NavLink style={{ textDecoration: "none" }} to="/login">
-              <Button className={classes.link}>Login</Button>
-            </NavLink>
+
+            {user?.email ? (
+              <Box>
+                <NavLink style={{ textDecoration: "none" }} to="/dashboard">
+                  <Button className={classes.link}>Dashboard</Button>
+                </NavLink>
+                <Button onClick={logOut} className={classes.link}>
+                  Logout
+                </Button>
+              </Box>
+            ) : (
+              <NavLink style={{ textDecoration: "none" }} to="/login">
+                <Button className={classes.link}>Login</Button>
+              </NavLink>
+            )}
           </div>
         )}
       </Toolbar>

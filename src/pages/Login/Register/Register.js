@@ -1,4 +1,12 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Button,
+  CircularProgress,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
@@ -52,49 +60,60 @@ const Register = () => {
                 Register
               </span>
             </Typography>
-            <form onSubmit={handleRegisterSubmit}>
-              <TextField
-                sx={{ width: "75%", m: 1 }}
-                id="standard-basic"
-                label="Your Name"
-                name="name"
-                onChange={handleOnBlur}
-                variant="standard"
-              />
-              <TextField
-                sx={{ width: "75%", m: 1 }}
-                id="standard-basic"
-                label="Your Email"
-                name="email"
-                onChange={handleOnBlur}
-                variant="standard"
-              />
-              <TextField
-                sx={{ width: "75%", m: 1 }}
-                id="standard-basic"
-                label="Your Password"
-                type="password"
-                name="password"
-                onChange={handleOnBlur}
-                variant="standard"
-              />
-              <TextField
-                sx={{ width: "75%", m: 1 }}
-                id="standard-basic"
-                label="Your Phone"
-                name="phone"
-                onChange={handleOnBlur}
-                variant="standard"
-              />
+            {!isLoading && (
+              <form onSubmit={handleRegisterSubmit}>
+                <TextField
+                  sx={{ width: "75%", m: 1 }}
+                  id="standard-basic"
+                  label="Your Name"
+                  name="name"
+                  onChange={handleOnBlur}
+                  variant="standard"
+                />
+                <TextField
+                  sx={{ width: "75%", m: 1 }}
+                  id="standard-basic"
+                  label="Your Email"
+                  name="email"
+                  onChange={handleOnBlur}
+                  variant="standard"
+                />
+                <TextField
+                  sx={{ width: "75%", m: 1 }}
+                  id="standard-basic"
+                  label="Your Password"
+                  type="password"
+                  name="password"
+                  onChange={handleOnBlur}
+                  variant="standard"
+                />
+                <TextField
+                  sx={{ width: "75%", m: 1 }}
+                  id="standard-basic"
+                  label="Your Phone"
+                  name="phone"
+                  onChange={handleOnBlur}
+                  variant="standard"
+                />
 
-              <Button
-                sx={{ width: "75%", mt: 2, mb: 1 }}
-                type="submit"
-                variant="contained"
-              >
-                Register
-              </Button>
-            </form>
+                <Button
+                  sx={{ width: "75%", mt: 2, mb: 1 }}
+                  type="submit"
+                  variant="contained"
+                >
+                  Register
+                </Button>
+              </form>
+            )}
+            {isLoading && (
+              <Box sx={{ textAlign: "center" }}>
+                <CircularProgress />
+              </Box>
+            )}
+            {user?.email && (
+              <Alert severity="success">User Created successfully!</Alert>
+            )}
+            {authError && <Alert severity="error">{authError}</Alert>}
             <Typography sx={{ mt: 4 }} variant="body1" gutterBottom>
               <span>
                 Already a member?{" "}

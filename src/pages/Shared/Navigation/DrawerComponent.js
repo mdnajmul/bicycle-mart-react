@@ -9,8 +9,9 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-
 import MenuIcon from "@material-ui/icons/Menu";
+import useAuth from "../../../hooks/useAuth";
+import { Button, Box } from "@mui/material";
 
 const useStyles = makeStyles(() => ({
   link: {
@@ -27,6 +28,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const DrawerComponent = () => {
+  const user = useAuth();
+  const logOut = useAuth();
   const classes = useStyles();
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
@@ -49,21 +52,34 @@ const DrawerComponent = () => {
             </ListItemText>
           </ListItem>
           <Divider />
-          <ListItem onClick={() => setOpenDrawer(false)}>
-            <ListItemText>
-              <Link to="/dashboard" className={classes.link}>
-                DASHBOARD
-              </Link>
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem onClick={() => setOpenDrawer(false)}>
-            <ListItemText>
-              <Link to="/login" className={classes.link}>
-                LOGIN
-              </Link>
-            </ListItemText>
-          </ListItem>
+          {user?.email ? (
+            <Box>
+              <ListItem onClick={() => setOpenDrawer(false)}>
+                <ListItemText>
+                  <Link to="/dashboard" className={classes.link}>
+                    DASHBOARD
+                  </Link>
+                </ListItemText>
+              </ListItem>
+              <Divider />
+              <ListItem onClick={() => setOpenDrawer(false)}>
+                <ListItemText>
+                  <Button onClick={logOut} className={classes.link}>
+                    LOGOUT
+                  </Button>
+                </ListItemText>
+              </ListItem>
+            </Box>
+          ) : (
+            <ListItem onClick={() => setOpenDrawer(false)}>
+              <ListItemText>
+                <Link to="/login" className={classes.link}>
+                  LOGIN
+                </Link>
+              </ListItemText>
+            </ListItem>
+          )}
+
           <Divider />
         </List>
       </Drawer>
