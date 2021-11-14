@@ -16,8 +16,8 @@ initializeAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [products, setProducts] = useState([]);
-  const [authError, setAuthError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [authError, setAuthError] = useState("");
 
   //get all products
   useEffect(() => {
@@ -75,6 +75,7 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
+        console.log(user);
         saveUser(user.email, user.displayName, user.phoneNumber, "PUT");
         setAuthError("");
         const destination = location?.state?.from || "/";
@@ -120,14 +121,13 @@ const useFirebase = () => {
 
   return {
     user,
+    products,
+    isLoading,
     authError,
     registerUser,
     loginUser,
     signInUsingGoogle,
     logOut,
-    products,
-    isLoading,
-    setIsLoading,
   };
 };
 

@@ -28,8 +28,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const DrawerComponent = () => {
-  const user = useAuth();
-  const logOut = useAuth();
+  const { user, logOut } = useAuth();
   const classes = useStyles();
   const [openDrawer, setOpenDrawer] = useState(false);
   return (

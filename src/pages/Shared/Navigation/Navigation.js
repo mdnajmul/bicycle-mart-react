@@ -36,8 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 // marginLeft: theme.spacing(20),
 const Navigation = () => {
-  const user = useAuth();
-  const logOut = useAuth();
+  const { user, logOut } = useAuth();
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));

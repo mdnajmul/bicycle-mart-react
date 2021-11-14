@@ -12,12 +12,9 @@ import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
-  const [registerData, setRegisterData] = useState();
+  const [registerData, setRegisterData] = useState({});
   const history = useHistory();
-  const user = useAuth();
-  const registerUser = useAuth();
-  const isLoading = useAuth();
-  const authError = useAuth();
+  const { user, registerUser, isLoading, authError } = useAuth();
 
   const handleOnBlur = (e) => {
     const field = e.target.name;

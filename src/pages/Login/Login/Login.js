@@ -14,11 +14,8 @@ import "./Login.css";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const signInUsingGoogle = useAuth();
-  const isLoading = useAuth();
-  const authError = useAuth();
-  const loginUser = useAuth();
-  const user = useAuth();
+  const { user, loginUser, signInUsingGoogle, isLoading, authError } =
+    useAuth();
 
   const location = useLocation();
   const history = useHistory();
@@ -39,6 +36,7 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     signInUsingGoogle(location, history);
   };
+
   return (
     <Box>
       <Box sx={{ justifyContent: "center" }}>
