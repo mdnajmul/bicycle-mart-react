@@ -15,10 +15,11 @@ initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
   const [authError, setAuthError] = useState("");
+  const email = sessionStorage.getItem("email");
 
   //get all products
   useEffect(() => {
@@ -36,6 +37,7 @@ const useFirebase = () => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        sessionStorage.setItem("email", email);
         setAuthError("");
         const newUser = { email, displayName: name, phoneNumber: phone };
         setUser(newUser);
@@ -61,6 +63,7 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        sessionStorage.setItem("email", email);
         const destination = location?.state?.from || "/";
         history.replace(destination);
         setAuthError("");
@@ -76,7 +79,7 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        sessionStorage.setItem("email", user.email);
         saveUser(user.email, user.displayName, user.phoneNumber, "PUT");
         setAuthError("");
         const destination = location?.state?.from || "/";
@@ -89,15 +92,18 @@ const useFirebase = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`http://localhost:5000/users/${email}`)
       .then((res) => res.json())
-      .then((data) => setAdmin(data.admin));
-  }, []);
+      .then((data) => {
+        setAdmin(data.admin);
+      });
+  }, [email]);
 
   const logOut = () => {
     setIsLoading(true);
     signOut(auth)
       .then(() => {
+        sessionStorage.removeItem("email");
         setUser({});
       })
       .finally(() => setIsLoading(false));
@@ -129,6 +135,7 @@ const useFirebase = () => {
   return {
     user,
     products,
+    admin,
     isLoading,
     authError,
     registerUser,

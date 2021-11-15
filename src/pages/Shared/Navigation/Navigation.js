@@ -37,9 +37,11 @@ const useStyles = makeStyles((theme) => ({
 // marginLeft: theme.spacing(20),
 const Navigation = () => {
   const { user, logOut } = useAuth();
+  const email = sessionStorage.getItem("email");
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <AppBar position="static">
       <CssBaseline />
@@ -63,7 +65,7 @@ const Navigation = () => {
               <Button className={classes.link}>ALL COLLECTION</Button>
             </NavLink>
 
-            {user?.email ? (
+            {email ? (
               <Box>
                 <NavLink style={{ textDecoration: "none" }} to="/dashboard">
                   <Button className={classes.link}>Dashboard</Button>

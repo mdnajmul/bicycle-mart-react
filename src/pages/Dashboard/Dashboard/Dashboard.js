@@ -6,12 +6,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -19,15 +13,17 @@ import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import { Button } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import AddProduct from "../AddProduct/AddProduct";
 
 const drawerWidth = 200;
 
 const Dashboard = (props) => {
-  const { user, logOut } = useAuth();
+  const { admin, logOut } = useAuth();
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-  const { admin } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -38,27 +34,27 @@ const Dashboard = (props) => {
       <Divider />
       {admin ? (
         <Box>
-          <Link to="/">
+          <Link style={{ textDecoration: "none" }} to="/">
             <Button color="inherit">Home</Button>
           </Link>
           <Divider />
-          <Link to={`${url}/manageorders`}>
+          <Link style={{ textDecoration: "none" }} to={`${url}/manageorders`}>
             <Button color="inherit">Manage All Orders</Button>
           </Link>
           <Divider />
-          <Link to={`${url}/manageproducts`}>
+          <Link style={{ textDecoration: "none" }} to={`${url}/manageproducts`}>
             <Button color="inherit">Manage Products</Button>
           </Link>
           <Divider />
-          <Link to={`${url}/addproduct`}>
+          <Link style={{ textDecoration: "none" }} to={`${url}/addProduct`}>
             <Button color="inherit">Add Product</Button>
           </Link>
           <Divider />
-          <Link to={`${url}/makeadmin`}>
+          <Link style={{ textDecoration: "none" }} to={`${url}/makeAdmin`}>
             <Button color="inherit">Make Admin</Button>
           </Link>
-          <Link>
-            <Divider />
+          <Divider />
+          <Link style={{ textDecoration: "none" }} to="/">
             <Button onClick={logOut} color="inherit">
               Logout
             </Button>
@@ -83,7 +79,7 @@ const Dashboard = (props) => {
             <Button color="inherit">Review</Button>
           </Link>
           <Divider />
-          <Link style={{ textDecoration: "none" }}>
+          <Link style={{ textDecoration: "none" }} to="/">
             <Button onClick={logOut} color="inherit">
               Logout
             </Button>
@@ -171,12 +167,24 @@ const Dashboard = (props) => {
           <Route exact path={path}></Route>
           <AdminRoute path={`${path}/manageAllOrders`}></AdminRoute>
           <AdminRoute path={`${path}/manageAllProducts`}></AdminRoute>
-          <AdminRoute path={`${path}/addProduct`}></AdminRoute>
-          <AdminRoute path={`${path}/makeAdmin`}></AdminRoute>
+          <AdminRoute path={`${path}/addProduct`}>
+            <AddProduct></AddProduct>
+          </AdminRoute>
+          <AdminRoute path={`${path}/makeAdmin`}>
+            <MakeAdmin></MakeAdmin>
+          </AdminRoute>
         </Switch>
       </Box>
     </Box>
   );
+};
+
+Dashboard.propTypes = {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
 };
 
 export default Dashboard;

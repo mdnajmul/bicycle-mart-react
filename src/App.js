@@ -24,7 +24,7 @@ function App() {
               <Navigation></Navigation>
               <Register></Register>
             </Route>
-            <Route exact path="/dashboard">
+            <Route path="/dashboard">
               <Navigation></Navigation>
               <Dashboard></Dashboard>
             </Route>
