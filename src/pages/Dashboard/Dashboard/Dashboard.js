@@ -20,6 +20,8 @@ import ManageProducts from "../ManageProducts/ManageProducts";
 import ManageOrders from "../ManageOrders/ManageOrders";
 import Review from "../Review/Review";
 import MyOrders from "../MyOrders/MyOrders";
+import Payment from "../Payment/Payment";
+import DashboardHome from "../DashboardHome/DashboardHome";
 
 const drawerWidth = 200;
 
@@ -83,7 +85,7 @@ const Dashboard = (props) => {
             <Button color="inherit">My Orders</Button>
           </Link>
           <Divider />
-          <Link to={`${url}/pay`} style={{ textDecoration: "none" }}>
+          <Link to={`${url}/payment`} style={{ textDecoration: "none" }}>
             <Button color="inherit">Payment</Button>
           </Link>
           <Divider />
@@ -177,9 +179,14 @@ const Dashboard = (props) => {
         <Toolbar />
 
         <Switch>
-          <PrivateRoute exact path={path}></PrivateRoute>
+          <PrivateRoute exact path={path}>
+            <DashboardHome></DashboardHome>
+          </PrivateRoute>
           <PrivateRoute path={`${path}/myorders`}>
             <MyOrders></MyOrders>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/payment`}>
+            <Payment></Payment>
           </PrivateRoute>
           <PrivateRoute path={`${path}/review`}>
             <Review></Review>
