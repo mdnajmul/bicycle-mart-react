@@ -16,6 +16,7 @@ import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddProduct from "../AddProduct/AddProduct";
 import ManageProducts from "../ManageProducts/ManageProducts";
+import ManageOrders from "../ManageOrders/ManageOrders";
 
 const drawerWidth = 200;
 
@@ -39,7 +40,10 @@ const Dashboard = (props) => {
             <Button color="inherit">Home</Button>
           </Link>
           <Divider />
-          <Link style={{ textDecoration: "none" }} to={`${url}/manageorders`}>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={`${url}/manageAllOrders`}
+          >
             <Button color="inherit">Manage All Orders</Button>
           </Link>
           <Divider />
@@ -131,7 +135,7 @@ const Dashboard = (props) => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },
@@ -169,7 +173,9 @@ const Dashboard = (props) => {
 
         <Switch>
           <Route exact path={path}></Route>
-          <AdminRoute path={`${path}/manageAllOrders`}></AdminRoute>
+          <AdminRoute path={`${path}/manageAllOrders`}>
+            <ManageOrders></ManageOrders>
+          </AdminRoute>
           <AdminRoute path={`${path}/manageAllProducts`}>
             <ManageProducts></ManageProducts>
           </AdminRoute>
