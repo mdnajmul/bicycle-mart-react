@@ -15,20 +15,10 @@ initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  const [products, setProducts] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
   const [authError, setAuthError] = useState("");
   const email = sessionStorage.getItem("email");
-
-  //get all products
-  useEffect(() => {
-    fetch("http://localhost:5000/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-      });
-  }, []);
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -134,7 +124,6 @@ const useFirebase = () => {
 
   return {
     user,
-    products,
     admin,
     isLoading,
     authError,
