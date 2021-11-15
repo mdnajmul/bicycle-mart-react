@@ -17,6 +17,7 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddProduct from "../AddProduct/AddProduct";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import ManageOrders from "../ManageOrders/ManageOrders";
+import Review from "../Review/Review";
 
 const drawerWidth = 200;
 
@@ -67,6 +68,7 @@ const Dashboard = (props) => {
               Logout
             </Button>
           </Link>
+          <Divider />
         </Box>
       ) : (
         <Box>
@@ -80,7 +82,7 @@ const Dashboard = (props) => {
           </Link>
           <Divider />
           <Link to={`${url}/pay`} style={{ textDecoration: "none" }}>
-            <Button color="inherit">PAY</Button>
+            <Button color="inherit">Payment</Button>
           </Link>
           <Divider />
           <Link to={`${url}/review`} style={{ textDecoration: "none" }}>
@@ -92,6 +94,7 @@ const Dashboard = (props) => {
               Logout
             </Button>
           </Link>
+          <Divider />
         </Box>
       )}
     </div>
@@ -173,6 +176,9 @@ const Dashboard = (props) => {
 
         <Switch>
           <Route exact path={path}></Route>
+          <Route path={`${path}/review`}>
+            <Review></Review>
+          </Route>
           <AdminRoute path={`${path}/manageAllOrders`}>
             <ManageOrders></ManageOrders>
           </AdminRoute>
