@@ -6,6 +6,8 @@ import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
 import Navigation from "./pages/Shared/Navigation/Navigation";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
+import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
+import Shipping from "./pages/Shipping/Shipping";
 
 function App() {
   return (
@@ -24,10 +26,14 @@ function App() {
               <Navigation></Navigation>
               <Register></Register>
             </Route>
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <Navigation></Navigation>
               <Dashboard></Dashboard>
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute path="/bookProduct/:bookId">
+              <Navigation></Navigation>
+              <Shipping></Shipping>
+            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>

@@ -67,10 +67,10 @@ const MyOrders = () => {
                   {i++}
                 </TableCell>
                 <TableCell align="center">
-                  {order?.orderDetails[0]?.name}
+                  {order?.orderDetails?.name}
                 </TableCell>
                 <TableCell align="center">
-                  {order?.orderDetails[0]?.price}
+                  BDT {order?.orderDetails?.price}
                 </TableCell>
                 <TableCell align="center">{order?.status}</TableCell>
                 <TableCell align="center">
