@@ -13,11 +13,13 @@ import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import { Button } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
+import PrivateRoute from "../../Login/PrivateRoute/PrivateRoute";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddProduct from "../AddProduct/AddProduct";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import ManageOrders from "../ManageOrders/ManageOrders";
 import Review from "../Review/Review";
+import MyOrders from "../MyOrders/MyOrders";
 
 const drawerWidth = 200;
 
@@ -175,10 +177,13 @@ const Dashboard = (props) => {
         <Toolbar />
 
         <Switch>
-          <Route exact path={path}></Route>
-          <Route path={`${path}/review`}>
+          <PrivateRoute exact path={path}></PrivateRoute>
+          <PrivateRoute path={`${path}/myorders`}>
+            <MyOrders></MyOrders>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/review`}>
             <Review></Review>
-          </Route>
+          </PrivateRoute>
           <AdminRoute path={`${path}/manageAllOrders`}>
             <ManageOrders></ManageOrders>
           </AdminRoute>
