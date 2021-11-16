@@ -8,6 +8,7 @@ import Navigation from "./pages/Shared/Navigation/Navigation";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import Shipping from "./pages/Shipping/Shipping";
+import AllProducts from "./pages/AllProducts/AllProducts";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
               <Navigation></Navigation>
               <Shipping></Shipping>
             </PrivateRoute>
+            <Route path="/products">
+              <Navigation></Navigation>
+              <AllProducts></AllProducts>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>

@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import "./Product.css";
 import { Rating } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import { Button } from "@material-ui/core";
 
 const Product = (props) => {
   const { _id, name, brand, img, price, rating } = props.product;
