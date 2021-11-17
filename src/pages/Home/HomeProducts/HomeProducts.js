@@ -32,7 +32,11 @@ const HomeProducts = () => {
           variant="h4"
           component="div"
         >
-          OUR BICYCLE COLLECTION
+          <span style={{ color: "orange", fontWeight: "bold" }}>
+            FEATURED{" "}
+            <span style={{ color: "green", fontWeight: "bold" }}>BICYCLE</span>{" "}
+            COLLECTION
+          </span>
         </Typography>
         <Divider />
         <Grid

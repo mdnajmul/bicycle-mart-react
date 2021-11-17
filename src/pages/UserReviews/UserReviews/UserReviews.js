@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { Divider } from "@material-ui/core";
@@ -19,6 +20,8 @@ const UserReviews = () => {
   var settings = {
     dots: true,
     infinite: true,
+    accessibility: true,
+    arrows: true,
     speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -54,8 +57,9 @@ const UserReviews = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, mt: 4 }}>
       <Container>
+        <Divider />
         <Typography
           sx={{
             fontWeight: 500,
@@ -66,16 +70,18 @@ const UserReviews = () => {
           variant="h4"
           component="div"
         >
-          OUR CLIENT SAYS
+          <span style={{ color: "blue", fontWeight: "bold" }}>HAPPY </span>
+          <span style={{ color: "orange", fontWeight: "bold" }}>CLIENT </span>
+          <span style={{ color: "blue", fontWeight: "bold" }}>SAYS</span>
         </Typography>
         <Divider />
-        <Box>
+        <Grid>
           <Slider {...settings}>
             {allReviews.map((review) => (
               <EachReview key={review?._id} review={review}></EachReview>
             ))}
           </Slider>
-        </Box>
+        </Grid>
       </Container>
     </Box>
   );

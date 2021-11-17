@@ -49,7 +49,7 @@ const Product = (props) => {
               className="update-btn"
               to={`/bookProduct/${_id}`}
             >
-              BOOK NOW
+              PAY NOW
             </NavLink>
           </Typography>
         </CardContent>

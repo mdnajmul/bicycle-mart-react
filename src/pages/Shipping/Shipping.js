@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import { Container } from "@mui/material";
+import { CircularProgress, Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useLocation, useParams } from "react-router";
 import { useForm } from "react-hook-form";
@@ -12,8 +12,9 @@ import useAuth from "../../hooks/useAuth";
 
 const Shipping = () => {
   let { bookId } = useParams();
-  const [product, setProduct] = useState({});
-  const { user } = useAuth();
+  const [product, setProduct] = useState([]);
+  const { user, isLoading } = useAuth();
+
   const email = sessionStorage.getItem("email");
   const {
     register,
@@ -26,18 +27,16 @@ const Shipping = () => {
     fetch(`http://localhost:5000/products/${bookId}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
-  }, []);
+  }, [bookId]);
 
-  const { _id, name, img, brand, price, rating } = product;
-  const {
-    model,
-    color,
-    variant,
-    frameVariant,
-    type,
-    tyreVariant,
-    frameMaterial,
-  } = product.specification;
+  if (isLoading) {
+    <Box sx={{ textAlign: "center" }}>
+      <Typography>Loading</Typography>
+      <CircularProgress />
+    </Box>;
+  }
+
+  const { name, img, brand, price } = product[0] || {};
 
   const onSubmit = (data) => {
     data.orderDetails = product;
@@ -105,7 +104,7 @@ const Shipping = () => {
                     MODEL:
                   </span>{" "}
                   <span style={{ color: "green", fontWeight: "bold" }}>
-                    {model}
+                    {product[0]?.specification?.model}
                   </span>
                 </Typography>
                 <Typography sx={{ textAlign: "center" }} variant="body2">
@@ -113,7 +112,7 @@ const Shipping = () => {
                     COLOR:
                   </span>{" "}
                   <span style={{ color: "green", fontWeight: "bold" }}>
-                    {color}
+                    {product[0]?.specification?.color}
                   </span>
                 </Typography>
                 <Typography sx={{ textAlign: "center" }} variant="body2">
@@ -121,7 +120,7 @@ const Shipping = () => {
                     Category:
                   </span>{" "}
                   <span style={{ color: "green", fontWeight: "bold" }}>
-                    {type}
+                    {product[0]?.specification?.type}
                   </span>
                 </Typography>
                 <Typography sx={{ textAlign: "center" }} variant="body2">
@@ -129,7 +128,7 @@ const Shipping = () => {
                     Variant:
                   </span>{" "}
                   <span style={{ color: "green", fontWeight: "bold" }}>
-                    {variant}
+                    {product[0]?.specification?.variant}
                   </span>
                 </Typography>
                 <Typography sx={{ textAlign: "center" }} variant="body2">
@@ -137,7 +136,7 @@ const Shipping = () => {
                     Frame Variant:
                   </span>{" "}
                   <span style={{ color: "green", fontWeight: "bold" }}>
-                    {frameVariant}
+                    {product[0]?.specification?.frameVariant}
                   </span>
                 </Typography>
                 <Typography sx={{ textAlign: "center" }} variant="body2">
@@ -145,7 +144,7 @@ const Shipping = () => {
                     Tyre Variant:
                   </span>{" "}
                   <span style={{ color: "green", fontWeight: "bold" }}>
-                    {tyreVariant}
+                    {product[0]?.specification?.tyreVariant}
                   </span>
                 </Typography>
                 <Typography sx={{ textAlign: "center" }} variant="body2">
@@ -153,7 +152,7 @@ const Shipping = () => {
                     Frame Material:
                   </span>{" "}
                   <span style={{ color: "green", fontWeight: "bold" }}>
-                    {frameMaterial}
+                    {product[0]?.specification?.frameMaterial}
                   </span>
                 </Typography>
                 <Typography sx={{ textAlign: "center" }} variant="body2">

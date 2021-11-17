@@ -29,7 +29,11 @@ const AllProducts = () => {
           variant="h4"
           component="div"
         >
-          ALL BICYCLE COLLECTION
+          <span style={{ color: "blue", fontWeight: "bold" }}>ALL</span>{" "}
+          <span style={{ color: "orangered", fontWeight: "bold" }}>
+            BICYCLE
+          </span>{" "}
+          <span style={{ color: "blue", fontWeight: "bold" }}>COLLECTION</span>
         </Typography>
         <Divider />
         <Grid
