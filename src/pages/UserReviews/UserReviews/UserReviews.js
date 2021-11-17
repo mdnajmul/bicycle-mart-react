@@ -18,7 +18,7 @@ const UserReviews = () => {
   });
 
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     accessibility: true,
     arrows: true,
@@ -36,7 +36,7 @@ const UserReviews = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
