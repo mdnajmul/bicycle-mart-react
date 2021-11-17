@@ -296,7 +296,35 @@ const Footer = () => {
           </Grid>
         </Container>
       </Box>
-      <h2>Footer</h2>
+      <Box className="footer-bottom">
+        <Container>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography
+              sx={{ textAlign: "start", mt: 4, mb: 4 }}
+              variant="p"
+              component="div"
+              style={{ color: "white", fontWeight: "bold" }}
+            >
+              &copy; Copyrights {new Date().getFullYear()} Bicycle
+              <span style={{ color: "red" }}>Mart </span> All rights reserved.
+            </Typography>
+            <Typography
+              sx={{ textAlign: "start", mt: 4, mb: 4 }}
+              variant="p"
+              component="div"
+              style={{ color: "white", fontWeight: "bold" }}
+            >
+              Designed by najmulovi
+            </Typography>
+          </Box>
+        </Container>
+      </Box>
     </Box>
   );
 };
