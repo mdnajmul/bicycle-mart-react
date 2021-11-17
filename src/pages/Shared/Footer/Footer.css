@@ -1,0 +1,23 @@
+ul,
+ol {
+  list-style: none;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+}
+.font-arrow {
+  margin-right: 8px;
+  color: #ffc600;
+}
+.footer-hover-clr:hover {
+  color: #ffc600 !important;
+}
+.footer-top {
+  background-color: #07294d;
+}
+.ml-16 {
+  margin-left: -16px;
+}
+.mt-9 {
+  margin-top: -9px;
+}
