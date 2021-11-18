@@ -1,14 +1,16 @@
 import React from "react";
-import { CircularProgress, Box } from "@mui/material";
 import { Route, Redirect } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import { Spinner } from "react-bootstrap";
 
 const AdminRoute = ({ children, ...rest }) => {
   const { user, admin, isLoading } = useAuth();
   if (isLoading) {
-    <Box sx={{ textAlign: "center" }}>
-      <CircularProgress />
-    </Box>;
+    return (
+      <div className="text-center">
+        <Spinner animation="border" variant="warning" />
+      </div>
+    );
   }
   return (
     <Route

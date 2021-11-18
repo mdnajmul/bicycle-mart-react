@@ -91,7 +91,7 @@ const useFirebase = () => {
   };
 
   useEffect(() => {
-    const unsubscribed = onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
@@ -99,7 +99,6 @@ const useFirebase = () => {
       }
       setIsLoading(false);
     });
-    return () => unsubscribed;
   }, [auth]);
 
   const saveUser = (email, displayName, phoneNumber, method) => {
@@ -116,6 +115,7 @@ const useFirebase = () => {
   return {
     user,
     isLoading,
+    setIsLoading,
     authError,
     registerUser,
     loginUser,

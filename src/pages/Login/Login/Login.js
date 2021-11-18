@@ -14,8 +14,14 @@ import "./Login.css";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const { user, loginUser, signInUsingGoogle, isLoading, authError } =
-    useAuth();
+  const {
+    user,
+    loginUser,
+    signInUsingGoogle,
+    isLoading,
+    authError,
+    setIsLoading,
+  } = useAuth();
 
   const location = useLocation();
   const history = useHistory();
@@ -29,11 +35,13 @@ const Login = () => {
   };
 
   const handleLoginSubmit = (e) => {
+    setIsLoading(true);
     loginUser(loginData.email, loginData.password, location, history);
     e.preventDefault();
   };
 
   const handleGoogleSignIn = () => {
+    setIsLoading(true);
     signInUsingGoogle(location, history);
   };
 
