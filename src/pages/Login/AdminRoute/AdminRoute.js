@@ -4,7 +4,8 @@ import useAuth from "../../../hooks/useAuth";
 import { Spinner } from "react-bootstrap";
 
 const AdminRoute = ({ children, ...rest }) => {
-  const { user, admin, isLoading } = useAuth();
+  const { user, isLoading } = useAuth();
+  const admin = sessionStorage.getItem("admin");
   if (isLoading) {
     return (
       <div className="text-center">

@@ -27,7 +27,7 @@ const drawerWidth = 200;
 
 const Dashboard = (props) => {
   const { logOut } = useAuth();
-  const [admin, setAdmin] = React.useState(false);
+  // const [admin, setAdmin] = React.useState(false);
   const email = sessionStorage.getItem("email");
 
   React.useEffect(() => {
@@ -35,9 +35,12 @@ const Dashboard = (props) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.admin);
-        setAdmin(data.admin);
+        // setAdmin(data.admin);
+        sessionStorage.setItem("admin", data.admin);
       });
   }, [email]);
+
+  const admin = sessionStorage.getItem("admin");
 
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
