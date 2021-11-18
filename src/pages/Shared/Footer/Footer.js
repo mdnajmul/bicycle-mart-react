@@ -38,8 +38,9 @@ const Footer = () => {
                 BicycleMart is the first and largest website about bicycle in
                 Bangladesh. We have started our journey since 25th January 2019.
                 We have experienced and hard working team and our prime goal is
-                to provide motorcycle related necessary information to the
-                visitors in easy way.
+                to provide all brands bicycle in one site to the users in easy
+                way. We have easy payment system and we provide all brands
+                bicycle country's lowest price but quality is same.
               </Typography>
             </Grid>
             <Grid sx={{ mt: 3 }} item xs={4} sm={4} md={3}>
