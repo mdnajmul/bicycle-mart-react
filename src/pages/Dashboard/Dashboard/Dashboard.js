@@ -26,7 +26,18 @@ import DashboardHome from "../DashboardHome/DashboardHome";
 const drawerWidth = 200;
 
 const Dashboard = (props) => {
-  const { admin, logOut } = useAuth();
+  const { logOut } = useAuth();
+  const [admin, setAdmin] = React.useState(false);
+  const email = sessionStorage.getItem("email");
+
+  React.useEffect(() => {
+    fetch(`http://localhost:5000/users/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.admin);
+        setAdmin(data.admin);
+      });
+  }, [email]);
 
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);

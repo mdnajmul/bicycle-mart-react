@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import Shipping from "./pages/Shipping/Shipping";
 import AllProducts from "./pages/AllProducts/AllProducts";
+import Footer from "./pages/Shared/Footer/Footer";
 
 function App() {
   return (
@@ -19,13 +20,18 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
+            <Route exact path="/home">
+              <Home></Home>
+            </Route>
             <Route exact path="/login">
               <Navigation></Navigation>
               <Login></Login>
+              <Footer></Footer>
             </Route>
             <Route exact path="/register">
               <Navigation></Navigation>
               <Register></Register>
+              <Footer></Footer>
             </Route>
             <PrivateRoute path="/dashboard">
               <Navigation></Navigation>
@@ -34,10 +40,12 @@ function App() {
             <PrivateRoute path="/bookProduct/:bookId">
               <Navigation></Navigation>
               <Shipping></Shipping>
+              <Footer></Footer>
             </PrivateRoute>
             <Route path="/products">
               <Navigation></Navigation>
               <AllProducts></AllProducts>
+              <Footer></Footer>
             </Route>
           </Switch>
         </Router>

@@ -16,7 +16,7 @@ const Summury = () => {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          <Grid sx={{ mt: 4, mb: 4 }} item xs={4} sm={4} md={3}>
+          <Grid sx={{ mt: 4, mb: 6 }} item xs={4} sm={4} md={3}>
             <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
               <CardContent sx={{ px: 2 }}>
                 <Typography
