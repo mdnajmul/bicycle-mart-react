@@ -16,7 +16,7 @@ const ManageProducts = () => {
 
   //Get all products
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://serene-citadel-54805.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setAllProducts(data));
   }, [reload]);
@@ -24,7 +24,7 @@ const ManageProducts = () => {
   const handleDelete = (id) => {
     const procced = window.confirm("Are you sure, you want to delete?");
     if (procced) {
-      fetch(`http://localhost:5000/delteProduct/${id}`, {
+      fetch(`https://serene-citadel-54805.herokuapp.com/delteProduct/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

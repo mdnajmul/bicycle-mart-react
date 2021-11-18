@@ -18,7 +18,7 @@ const Review = () => {
       review: data.review,
       rating: parseInt(data.rating),
     };
-    fetch("http://localhost:5000/addreview", {
+    fetch("https://serene-citadel-54805.herokuapp.com/addreview", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(userReview),

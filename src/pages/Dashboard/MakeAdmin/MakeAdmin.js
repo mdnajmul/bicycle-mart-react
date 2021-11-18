@@ -13,13 +13,16 @@ const MakeAdmin = () => {
   const handleAdminSubmit = (e) => {
     const user = { email };
     console.log(user);
-    fetch(`http://localhost:5000/users/makeAdmin?useremail=${useremail}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
+    fetch(
+      `https://serene-citadel-54805.herokuapp.com/users/makeAdmin?useremail=${useremail}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

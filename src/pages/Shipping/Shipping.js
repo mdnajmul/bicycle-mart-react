@@ -24,7 +24,7 @@ const Shipping = () => {
   } = useForm();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${bookId}`)
+    fetch(`https://serene-citadel-54805.herokuapp.com/products/${bookId}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [bookId]);
@@ -41,7 +41,7 @@ const Shipping = () => {
   const onSubmit = (data) => {
     data.orderDetails = product;
     data.status = "pending";
-    fetch("http://localhost:5000/confirmOrder", {
+    fetch("https://serene-citadel-54805.herokuapp.com/confirmOrder", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

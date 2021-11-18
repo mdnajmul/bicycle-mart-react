@@ -31,7 +31,7 @@ const Dashboard = (props) => {
   const email = sessionStorage.getItem("email");
 
   React.useEffect(() => {
-    fetch(`http://localhost:5000/users/${email}`)
+    fetch(`https://serene-citadel-54805.herokuapp.com/users/${email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.admin);

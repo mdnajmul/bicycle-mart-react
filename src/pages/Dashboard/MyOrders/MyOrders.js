@@ -16,7 +16,7 @@ const MyOrders = () => {
   let i = 1;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders/${email}`)
+    fetch(`https://serene-citadel-54805.herokuapp.com/myOrders/${email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [reload]);
@@ -24,7 +24,7 @@ const MyOrders = () => {
   const handleDelete = (id) => {
     const procced = window.confirm("Are you sure, you want to delete?");
     if (procced) {
-      fetch(`http://localhost:5000/delteOrder/${id}`, {
+      fetch(`https://serene-citadel-54805.herokuapp.com/delteOrder/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

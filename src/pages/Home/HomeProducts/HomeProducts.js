@@ -11,7 +11,7 @@ const HomeProducts = () => {
 
   //Get all products
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://serene-citadel-54805.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
