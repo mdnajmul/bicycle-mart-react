@@ -23,6 +23,7 @@ const AllProducts = () => {
           sx={{
             fontWeight: 500,
             m: 2,
+            mt: 4,
             color: "success.main",
             textAlign: "center",
           }}

@@ -10,7 +10,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <Box sx={{ mt: 2 }}>
+    <Box sx={{ mt: 8 }}>
       <Box className="footer-top">
         <Container>
           <Grid

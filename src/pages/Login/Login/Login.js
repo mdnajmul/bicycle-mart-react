@@ -54,7 +54,6 @@ const Login = () => {
             className="login"
             sx={{
               mt: 8,
-              mb: 8,
               mx: "auto",
               textAlign: "center",
               alignItems: "center",

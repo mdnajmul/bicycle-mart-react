@@ -9,7 +9,7 @@ import "./Summury.css";
 
 const Summury = () => {
   return (
-    <Box sx={{ flexGrow: 1, mt: 8 }} className="bg-clr">
+    <Box sx={{ flexGrow: 1, mt: 8, mb: -8 }} className="bg-clr">
       <Container>
         <Grid
           container
@@ -25,7 +25,7 @@ const Summury = () => {
                   component="div"
                 >
                   <span style={{ color: "blue", fontWeight: "bold" }}>
-                    Test Rides
+                    Total Brands
                   </span>
                 </Typography>
                 <Typography
@@ -34,7 +34,7 @@ const Summury = () => {
                   component="div"
                 >
                   <span style={{ color: "orange", fontWeight: "bold" }}>
-                    24622+
+                    20+
                   </span>
                 </Typography>
               </CardContent>
@@ -73,7 +73,7 @@ const Summury = () => {
                   component="div"
                 >
                   <span style={{ color: "blue", fontWeight: "bold" }}>
-                    Test Hired
+                    Free Service
                   </span>
                 </Typography>
                 <Typography
@@ -82,7 +82,7 @@ const Summury = () => {
                   component="div"
                 >
                   <span style={{ color: "orange", fontWeight: "bold" }}>
-                    7547+
+                    1 Year
                   </span>
                 </Typography>
               </CardContent>
