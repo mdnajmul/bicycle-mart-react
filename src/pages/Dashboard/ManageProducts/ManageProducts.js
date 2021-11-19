@@ -32,7 +32,6 @@ const ManageProducts = () => {
           if (data.deletedCount) {
             alert("Product Deleted Successfully!");
             setReload(!reload);
-            // window.location.href = window.location.href;
           }
         });
     }

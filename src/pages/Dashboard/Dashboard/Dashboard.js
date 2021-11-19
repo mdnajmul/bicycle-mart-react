@@ -9,8 +9,9 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import { Switch, NavLink, useRouteMatch } from "react-router-dom";
 import { Button } from "@mui/material";
+import { makeStyles } from "@material-ui/core";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import PrivateRoute from "../../Login/PrivateRoute/PrivateRoute";
@@ -22,11 +23,22 @@ import Review from "../Review/Review";
 import MyOrders from "../MyOrders/MyOrders";
 import Payment from "../Payment/Payment";
 import DashboardHome from "../DashboardHome/DashboardHome";
+import "./Dashboard.css";
+
+const useStyles = makeStyles((theme) => ({
+  link: {
+    "&:hover": {
+      color: "green",
+      borderBottom: "1px solid yellow",
+    },
+  },
+}));
 
 const drawerWidth = 200;
 
 const Dashboard = (props) => {
   const { logOut } = useAuth();
+  const classes = useStyles();
   const [admin, setAdmin] = React.useState(false);
   const email = sessionStorage.getItem("email");
 
@@ -34,7 +46,6 @@ const Dashboard = (props) => {
     fetch(`https://serene-citadel-54805.herokuapp.com/users/${email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.admin);
         setAdmin(data.admin);
         sessionStorage.setItem("admin", data.admin);
       });
@@ -53,63 +64,107 @@ const Dashboard = (props) => {
       <Divider />
       {admin ? (
         <Box>
-          <Link style={{ textDecoration: "none" }} to="/">
-            <Button color="inherit">Home</Button>
-          </Link>
+          <NavLink style={{ textDecoration: "none" }} to="/home">
+            <Button className={classes.link} color="inherit">
+              Home
+            </Button>
+          </NavLink>
           <Divider />
-          <Link
+          <NavLink
             style={{ textDecoration: "none" }}
             to={`${url}/manageAllOrders`}
+            activeClassName="active"
           >
-            <Button color="inherit">Manage All Orders</Button>
-          </Link>
+            <Button className={classes.link} color="inherit">
+              Manage All Orders
+            </Button>
+          </NavLink>
           <Divider />
-          <Link
+          <NavLink
             style={{ textDecoration: "none" }}
             to={`${url}/manageAllProducts`}
+            activeClassName="active"
           >
-            <Button color="inherit">Manage Products</Button>
-          </Link>
+            <Button className={classes.link} color="inherit">
+              Manage Products
+            </Button>
+          </NavLink>
           <Divider />
-          <Link style={{ textDecoration: "none" }} to={`${url}/addProduct`}>
-            <Button color="inherit">Add Product</Button>
-          </Link>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to={`${url}/addProduct`}
+            activeClassName="active"
+          >
+            <Button className={classes.link} color="inherit">
+              Add Product
+            </Button>
+          </NavLink>
           <Divider />
-          <Link style={{ textDecoration: "none" }} to={`${url}/makeAdmin`}>
-            <Button color="inherit">Make Admin</Button>
-          </Link>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to={`${url}/makeAdmin`}
+            activeClassName="active"
+          >
+            <Button className={classes.link} color="inherit">
+              Make Admin
+            </Button>
+          </NavLink>
           <Divider />
-          <Link style={{ textDecoration: "none" }} to="/">
-            <Button onClick={logOut} color="inherit">
+          <NavLink style={{ textDecoration: "none" }} to="/home">
+            <Button className={classes.link} onClick={logOut} color="inherit">
               Logout
             </Button>
-          </Link>
+          </NavLink>
           <Divider />
         </Box>
       ) : (
         <Box>
-          <Link to="/" style={{ textDecoration: "none" }} sx={{ mx: "auto" }}>
-            <Button color="inherit">Home</Button>
-          </Link>
+          <NavLink
+            to="/home"
+            style={{ textDecoration: "none" }}
+            sx={{ mx: "auto" }}
+          >
+            <Button className={classes.link} color="inherit">
+              Home
+            </Button>
+          </NavLink>
           <Divider />
 
-          <Link to={`${url}/myorders`} style={{ textDecoration: "none" }}>
-            <Button color="inherit">My Orders</Button>
-          </Link>
+          <NavLink
+            to={`${url}/myorders`}
+            style={{ textDecoration: "none" }}
+            activeClassName="active"
+          >
+            <Button className={classes.link} color="inherit">
+              My Orders
+            </Button>
+          </NavLink>
           <Divider />
-          <Link to={`${url}/payment`} style={{ textDecoration: "none" }}>
-            <Button color="inherit">Payment</Button>
-          </Link>
+          <NavLink
+            to={`${url}/payment`}
+            style={{ textDecoration: "none" }}
+            activeClassName="active"
+          >
+            <Button className={classes.link} color="inherit">
+              Payment
+            </Button>
+          </NavLink>
           <Divider />
-          <Link to={`${url}/review`} style={{ textDecoration: "none" }}>
-            <Button color="inherit">Review</Button>
-          </Link>
+          <NavLink
+            to={`${url}/review`}
+            style={{ textDecoration: "none" }}
+            activeClassName="active"
+          >
+            <Button className={classes.link} color="inherit">
+              Review
+            </Button>
+          </NavLink>
           <Divider />
-          <Link style={{ textDecoration: "none" }} to="/">
-            <Button onClick={logOut} color="inherit">
+          <NavLink style={{ textDecoration: "none" }} to="/home">
+            <Button className={classes.link} onClick={logOut} color="inherit">
               Logout
             </Button>
-          </Link>
+          </NavLink>
           <Divider />
         </Box>
       )}

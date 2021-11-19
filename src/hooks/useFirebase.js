@@ -85,6 +85,7 @@ const useFirebase = () => {
     signOut(auth)
       .then(() => {
         sessionStorage.removeItem("email");
+        sessionStorage.removeItem("admin");
         setUser({});
       })
       .finally(() => setIsLoading(false));

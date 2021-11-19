@@ -13,6 +13,7 @@ import {
 import { NavLink } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
 import useAuth from "../../../hooks/useAuth";
+import { Link } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 // marginLeft: theme.spacing(20),
 const Navigation = () => {
-  const { user, logOut } = useAuth();
+  const { logOut } = useAuth();
   const email = sessionStorage.getItem("email");
   const classes = useStyles();
   const theme = useTheme();
@@ -52,22 +53,37 @@ const Navigation = () => {
           component="div"
           sx={{ flexGrow: 1 }}
         >
-          Bicycle<span style={{ color: "red" }}>Mart</span>
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <span style={{ color: "white" }}>Bicycle</span>
+            <span style={{ color: "red" }}>Mart</span>
+          </Link>
         </Typography>
         {isMobile ? (
           <DrawerComponent />
         ) : (
           <div className={classes.navlinks}>
-            <NavLink style={{ textDecoration: "none" }} to="/">
+            <NavLink
+              style={{ textDecoration: "none" }}
+              to="/home"
+              activeClassName="active"
+            >
               <Button className={classes.link}>Home</Button>
             </NavLink>
-            <NavLink style={{ textDecoration: "none" }} to="/products">
+            <NavLink
+              style={{ textDecoration: "none" }}
+              to="/products"
+              activeClassName="active"
+            >
               <Button className={classes.link}>ALL COLLECTION</Button>
             </NavLink>
 
             {email ? (
               <Box>
-                <NavLink style={{ textDecoration: "none" }} to="/dashboard">
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  to="/dashboard"
+                  activeClassName="active"
+                >
                   <Button className={classes.link}>Dashboard</Button>
                 </NavLink>
                 <Button onClick={logOut} className={classes.link}>
@@ -75,7 +91,11 @@ const Navigation = () => {
                 </Button>
               </Box>
             ) : (
-              <NavLink style={{ textDecoration: "none" }} to="/login">
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to="/login"
+                activeClassName="active"
+              >
                 <Button className={classes.link}>Login</Button>
               </NavLink>
             )}

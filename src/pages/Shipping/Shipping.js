@@ -4,11 +4,12 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import { CircularProgress, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { useLocation, useParams } from "react-router";
+import { useParams } from "react-router";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import { Spinner } from "react-bootstrap";
 
 const Shipping = () => {
   let { bookId } = useParams();
@@ -30,10 +31,11 @@ const Shipping = () => {
   }, [bookId]);
 
   if (isLoading) {
-    <Box sx={{ textAlign: "center" }}>
-      <Typography>Loading</Typography>
-      <CircularProgress />
-    </Box>;
+    return (
+      <div className="text-center">
+        <Spinner animation="border" variant="warning" />
+      </div>
+    );
   }
 
   const { name, img, brand, price } = product[0] || {};
@@ -62,13 +64,12 @@ const Shipping = () => {
           sx={{
             fontWeight: 500,
             m: 2,
-            color: "success.main",
             textAlign: "center",
           }}
           variant="h4"
           component="div"
         >
-          PAYMENT GATEWAY
+          <span style={{ color: "orange" }}>PRODUCT & SHIPPING DETAILS</span>
         </Typography>
         <Grid
           container
@@ -211,7 +212,7 @@ const Shipping = () => {
                     defaultValue=""
                     {...register("address")}
                   />
-                  <input className="header-top-btn" type="submit" />
+                  <input className="submit-btn" type="submit" />
                 </form>
               </div>
             </div>

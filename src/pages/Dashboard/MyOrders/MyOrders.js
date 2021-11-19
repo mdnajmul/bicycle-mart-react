@@ -65,12 +65,13 @@ const MyOrders = () => {
               >
                 <TableCell component="th" scope="row">
                   {i++}
+                  {console.log(order.orderDetails[0]?.name)}
                 </TableCell>
                 <TableCell align="center">
-                  {order?.orderDetails?.name}
+                  {order?.orderDetails[0]?.name}
                 </TableCell>
                 <TableCell align="center">
-                  BDT {order?.orderDetails?.price}
+                  BDT {order?.orderDetails[0]?.price}
                 </TableCell>
                 <TableCell align="center">{order?.status}</TableCell>
                 <TableCell align="center">
