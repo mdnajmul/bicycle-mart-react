@@ -28,7 +28,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const DrawerComponent = () => {
-  const { user, logOut } = useAuth();
+  const { logOut } = useAuth();
+  const email = sessionStorage.getItem("email");
   const classes = useStyles();
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
@@ -51,7 +52,7 @@ const DrawerComponent = () => {
             </ListItemText>
           </ListItem>
           <Divider />
-          {user?.email ? (
+          {email ? (
             <Box>
               <ListItem onClick={() => setOpenDrawer(false)}>
                 <ListItemText>

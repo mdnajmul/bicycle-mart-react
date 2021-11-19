@@ -34,7 +34,6 @@ function App() {
               <Footer></Footer>
             </Route>
             <PrivateRoute path="/dashboard">
-              <Navigation></Navigation>
               <Dashboard></Dashboard>
             </PrivateRoute>
             <PrivateRoute path="/bookProduct/:bookId">
