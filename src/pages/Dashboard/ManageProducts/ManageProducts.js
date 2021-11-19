@@ -69,7 +69,9 @@ const ManageProducts = () => {
                   {i++}
                 </TableCell>
                 <TableCell align="center">{product?.name}</TableCell>
-                <TableCell align="center">{product?.model}</TableCell>
+                <TableCell align="center">
+                  {product?.specification?.model}
+                </TableCell>
                 <TableCell align="center">{product?.brand}</TableCell>
                 <TableCell align="center">BDT {product?.price}</TableCell>
                 <TableCell align="center">
