@@ -11,6 +11,10 @@ bicycle country's lowest price but quality is same.
 
 - [Go To Here](https://bicycle-mart-1df20.web.app/).
 
+## Technology Used
+
+- React, firebase, react router, node, express, mongodb etc.
+
 ## Project Description
 
 - Here All Brands Bicycles Are Available
