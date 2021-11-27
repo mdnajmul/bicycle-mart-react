@@ -1,11 +1,10 @@
 # BicycleMart
 
 BicycleMart is the first and largest website about bicycle in
-Bangladesh. We have started our journey since 25th January 2019.
-We have experienced and hard working team and our prime goal is
-to provide all brands bicycle in one site to the users in easy
-way. We have easy payment system and we provide all brands
-bicycle country's lowest price but quality is same.
+Bangladesh. We have experienced and hard working team and our
+prime goal is to provide all brands bicycle in one site to the
+users in easy way. We have easy payment system and we provide
+all brands bicycle country's lowest price but quality is same.
 
 ## Project Live Site
 
@@ -17,6 +16,10 @@ bicycle country's lowest price but quality is same.
 
 ## Project Description
 
+- This project is based on an online bicycle sell market & fully responsive.
+- Users need to login via Google or Email/Password (also create a new account).
+- Have admin and user dashboard. Admin can add products, delete products, manage orders.
+- For admin featured testing, login via using email: admin@admin.com & password: 123456
 - Here All Brands Bicycles Are Available
 - We Provide More Than 20 Brands Bicycle
 - We Provide Easy Payment System
