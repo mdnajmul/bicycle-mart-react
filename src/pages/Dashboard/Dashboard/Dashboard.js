@@ -29,6 +29,8 @@ import AddIcon from "@mui/icons-material/Add";
 import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import AppsIcon from "@mui/icons-material/Apps";
+import PaidIcon from "@mui/icons-material/Paid";
+import MessageIcon from "@mui/icons-material/Message";
 import "./Dashboard.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -150,6 +152,7 @@ const Dashboard = (props) => {
             sx={{ mx: "auto" }}
           >
             <Button className={classes.link} color="inherit">
+              <HomeIcon sx={{ mr: 2 }} />
               Home
             </Button>
           </NavLink>
@@ -161,6 +164,7 @@ const Dashboard = (props) => {
             activeClassName="active"
           >
             <Button className={classes.link} color="inherit">
+              <ShoppingBagIcon sx={{ mr: 2 }} />
               My Orders
             </Button>
           </NavLink>
@@ -171,6 +175,7 @@ const Dashboard = (props) => {
             activeClassName="active"
           >
             <Button className={classes.link} color="inherit">
+              <PaidIcon sx={{ mr: 2 }} />
               Payment
             </Button>
           </NavLink>
@@ -181,6 +186,7 @@ const Dashboard = (props) => {
             activeClassName="active"
           >
             <Button className={classes.link} color="inherit">
+              <MessageIcon sx={{ mr: 2 }} />
               Review
             </Button>
           </NavLink>
