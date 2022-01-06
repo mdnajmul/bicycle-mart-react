@@ -9,10 +9,10 @@ const EachReview = (props) => {
   const { name, review, rating } = props.review;
   return (
     <Grid sx={{ mt: 4 }}>
-      <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
+      <Card sx={{ minWidth: 275, border: 0, boxShadow: 0, height: 300 }}>
         <CardContent sx={{ px: 2 }}>
           <Typography
-            sx={{ textAlign: "center", my: 2, color: "text.secondary" }}
+            sx={{ textAlign: "center", mt: 8, color: "text.secondary" }}
             variant="body2"
           >
             <span>&#10077;</span>

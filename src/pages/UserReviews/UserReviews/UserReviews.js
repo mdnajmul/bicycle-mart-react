@@ -75,7 +75,7 @@ const UserReviews = () => {
           <span style={{ color: "blue", fontWeight: "bold" }}>SAYS</span>
         </Typography>
         <Divider />
-        <Grid>
+        <Grid sx={{ height: "300px" }}>
           <Slider {...settings}>
             {allReviews.map((review) => (
               <EachReview key={review?._id} review={review}></EachReview>
