@@ -10,7 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Switch, NavLink, useRouteMatch } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
@@ -23,10 +23,18 @@ import Review from "../Review/Review";
 import MyOrders from "../MyOrders/MyOrders";
 import Payment from "../Payment/Payment";
 import DashboardHome from "../DashboardHome/DashboardHome";
+import LogoutIcon from "@mui/icons-material/Logout";
+import HomeIcon from "@mui/icons-material/Home";
+import AddIcon from "@mui/icons-material/Add";
+import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import AppsIcon from "@mui/icons-material/Apps";
 import "./Dashboard.css";
 
 const useStyles = makeStyles((theme) => ({
   link: {
+    color: "#878787 !important",
+    textTransform: "none !important",
     "&:hover": {
       color: "green",
       borderBottom: "1px solid yellow",
@@ -37,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 const drawerWidth = 200;
 
 const Dashboard = (props) => {
-  const { logOut } = useAuth();
+  const { logOut, user } = useAuth();
   const classes = useStyles();
   const [admin, setAdmin] = React.useState(false);
   const email = sessionStorage.getItem("email");
@@ -60,12 +68,24 @@ const Dashboard = (props) => {
 
   const drawer = (
     <div>
+      <Typography
+        variant="h6"
+        className={classes.logo}
+        component="div"
+        sx={{ flexGrow: 1, mt: 2, ml: 4 }}
+      >
+        <Link href="/" style={{ textDecoration: "none" }}>
+          <span style={{ color: "#001E3C" }}>Bicycle</span>
+          <span style={{ color: "red" }}>Mart</span>
+        </Link>
+      </Typography>
       <Toolbar />
-      <Divider />
       {admin ? (
         <Box>
+          <Divider />
           <NavLink style={{ textDecoration: "none" }} to="/home">
             <Button className={classes.link} color="inherit">
+              <HomeIcon sx={{ mr: 2 }} />
               Home
             </Button>
           </NavLink>
@@ -76,6 +96,7 @@ const Dashboard = (props) => {
             activeClassName="active"
           >
             <Button className={classes.link} color="inherit">
+              <ShoppingBagIcon sx={{ mr: 2 }} />
               Manage All Orders
             </Button>
           </NavLink>
@@ -86,6 +107,7 @@ const Dashboard = (props) => {
             activeClassName="active"
           >
             <Button className={classes.link} color="inherit">
+              <AppsIcon sx={{ mr: 2 }} />
               Manage Products
             </Button>
           </NavLink>
@@ -96,6 +118,7 @@ const Dashboard = (props) => {
             activeClassName="active"
           >
             <Button className={classes.link} color="inherit">
+              <AddIcon sx={{ mr: 2 }} />
               Add Product
             </Button>
           </NavLink>
@@ -106,12 +129,14 @@ const Dashboard = (props) => {
             activeClassName="active"
           >
             <Button className={classes.link} color="inherit">
+              <PersonAddAlt1Icon sx={{ mr: 2 }} />
               Make Admin
             </Button>
           </NavLink>
           <Divider />
           <NavLink style={{ textDecoration: "none" }} to="/home">
             <Button className={classes.link} onClick={logOut} color="inherit">
+              <LogoutIcon sx={{ mr: 2 }} />
               Logout
             </Button>
           </NavLink>
@@ -162,6 +187,7 @@ const Dashboard = (props) => {
           <Divider />
           <NavLink style={{ textDecoration: "none" }} to="/home">
             <Button className={classes.link} onClick={logOut} color="inherit">
+              <LogoutIcon sx={{ mr: 2 }} />
               Logout
             </Button>
           </NavLink>
@@ -181,6 +207,7 @@ const Dashboard = (props) => {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          background: "#ffffff !important",
         }}
       >
         <Toolbar>
@@ -193,8 +220,26 @@ const Dashboard = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ color: "#0C0C0C", fontWeight: "600" }}
+          >
+            {email && (
+              <div className="mx-3 text-center">
+                <img
+                  style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+                  src={user?.photoURL}
+                  alt=""
+                />
+
+                <span className="">
+                  {" "}
+                  {user?.displayName} | {email ? "Admin" : "Subscriber"}
+                </span>
+              </div>
+            )}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -241,6 +286,8 @@ const Dashboard = (props) => {
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
+          background: "#E5E5E5",
+          height: "100%",
         }}
       >
         <Toolbar />
